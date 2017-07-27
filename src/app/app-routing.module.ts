@@ -16,6 +16,7 @@ const SSRroutes: Routes = [
 import { HomePageComponent } from '../pages/home/home-page/home-page.component';
 import { AboutPageComponent } from '../pages/about/about-page/about-page.component';
 import { LoginPageComponent } from '../pages/user/login-page/login-page.component';
+import { LoginCommodityComponent } from '../pages/commodity/login-commodity/login-commodity.component';
 const SPAroutes: Routes = [
   {
     path: '',
@@ -24,6 +25,7 @@ const SPAroutes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'login', component: LoginPageComponent },
+  { path: 'commodity-management', component: LoginCommodityComponent },
 ];
 
 // 配置路由模式

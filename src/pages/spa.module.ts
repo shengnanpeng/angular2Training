@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
+import { CommodityModule } from './commodity/commodity.Module';
 import { AboutModule } from './about/about.module';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { AboutModule } from './about/about.module';
     CommonModule,
     HomeModule,
     UserModule,
+    CommodityModule,
     AboutModule
   ],
 })
