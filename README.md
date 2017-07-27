@@ -1,6 +1,6 @@
 # Ng LazyLoad Starter
 
-psn的项目本项目通过最新版 [Angular CLI](https://github.com/angular/angular-cli) version 0.0.1 创建。
+psntest的项目本项目通过最新版 [Angular CLI](https://github.com/angular/angular-cli) version 0.0.1 创建。
 
 项目目标
 - 提供**LazyLoad**机制，匹配最新版本Angular的初始化项目包
