@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-commodity-login',
-  templateUrl: './login-commodity.component.html',
-  styleUrls: ['./login-commodity.component.scss']
+  selector: 'app-commodity-edit',
+  templateUrl: './commodity-edit.component.html',
+  styleUrls: ['./commodity-edit.component.scss']
 })
 
-export class LoginCommodityComponent implements OnInit {
+export class CommodityEditComponent implements OnInit {
  commodities:Array<any> = [
     {"num":19,
     "name":"commodity3",

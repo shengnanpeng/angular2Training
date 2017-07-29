@@ -1,0 +1,19 @@
+<table>
+  <tbody>
+    <tr *ngIf="commodities.length > 0">
+      <th>货号 </th>
+      <th>商品名 </th>
+      <th>价格 </th>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr *ngFor="let commodity of commodities">
+      <td>{{commodity.num}}</td>
+      <td>{{commodity.name}}</td>
+      <td>{{commodity.price}}</td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="sortByAsccending()" *ngIf="commodities.length > 0">正序排列</button>
+<button (click)="sortByDesccending()" *ngIf="commodities.length > 0">倒序排列</button>
+<button (click)="sortByRadom()" *ngIf="commodities.length > 0">随机打乱</button>
