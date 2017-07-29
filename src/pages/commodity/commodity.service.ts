@@ -4,13 +4,13 @@ import { Injectable } from "@angular/core";
 export class CommodityService{
     isLogined:boolean = false;
      commodities:Array<any> = [
-    {"num":19,
-    "name":"皮鞋",
+    { "id":19,
+      "name":"皮鞋",
       "price":"300"},
-      {"num":7,
+      {"id":7,
       "name":"包",
       "price":"100"},
-      {"num":14,
+      {"id":14,
       "name":"衣服",
       "price":"200"}
   ];

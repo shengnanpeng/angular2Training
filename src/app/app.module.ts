@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MaterialModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { SPAModule } from '../pages/spa.module';
     BrowserModule.withServerTransition({appId: 'ng-lazyload-starter'}),
     AppRoutingModule,
     HttpModule,
+    // Material及动画库
+    MaterialModule,
     SPAModule, // 静态打包时加载
   ],
   providers: [],
