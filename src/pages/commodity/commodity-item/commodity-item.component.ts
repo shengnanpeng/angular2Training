@@ -15,7 +15,7 @@ export class CommodityItemComponent implements OnInit {
   constructor(private commodityServ:CommodityService) { 
   }
   onStudentClick(){
-    this.CommodityClick.emit(this.commodity)
+    this.CommodityClick.emit(this.commodity);
   }
   check(){
     if(this.commodity.check&&this.commodity.check==true){

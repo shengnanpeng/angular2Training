@@ -1,35 +1,4 @@
 
-<!-- <h1 *ngIf="commodity.state==false">状态：登录失败</h1>
-<h1 *ngIf="commodity.state==true">状态：登陆成功[{{commodity.name}}]</h1>
-<input [value]="commodity.num" (keyup)="onKey($event,'num')" placeholder="请输入货号">
-<br>
-<input [value]="commodity.name" (keyup)="onKey($event,'name')" placeholder="请输入商品名">
-<br>
-<input [value]="commodity.price" (keyup)="onKey($event,'price')" placeholder="请输入价格">
-<br>
-<button (click)="login()">新增</button>
-<button (click)="login()" *ngIf="users.length > 0">删除</button> -->
-
-<!-- <table>
-  <tbody>
-    <tr *ngIf="commodities.length > 0">
-      <th>货号 </th>
-      <th>商品名 </th>
-      <th>价格 </th>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr *ngFor="let commodity of commodities">
-      <td>{{commodity.num}}</td>
-      <td>{{commodity.name}}</td>
-      <td>{{commodity.price}}</td>
-    </tr>
-  </tbody>
-</table>
-<button (click)="sortByAsccending()" *ngIf="commodities.length > 0">正序排列</button>
-<button (click)="sortByDesccending()" *ngIf="commodities.length > 0">倒序排列</button>
-<button (click)="sortByRadom()" *ngIf="commodities.length > 0">随机打乱</button> -->
-
 <button routerLink="/commodity/edit/new">新增商品</button>
 <button (click)="commodityServ.deleteChecked()">批量删除</button>
 <button (click)="sortByAsccending()">正序</button>
@@ -38,13 +7,13 @@
 
 <div class="row table-header">
       <div class="col-1">选择 </div>
-      <div class="col-1" (click)="sortByAsccending('id')">货号 </div>
+      <div class="col-1" (click)="sortByAsccending('commodityId')">货号 </div>
       <div class="col-2" (click)="sortByAsccending('name')">商品名 </div>
-      <div class="col-1" (click)="sortByAsccending('sex')">价格 </div>
+      <div class="col-1" (click)="sortByAsccending('price')">价格 </div>
 </div>
 <div class="row table-row" *ngFor="let commodity of searchResult">
-  <app-commodity-item [commodity]="commodity" (commodityClick)="selectcommodity = $event"></app-commodity-item>
+  <app-commodity-item [commodity]="commodity" (commodityClick)="selectCommodity = $event"></app-commodity-item>
 </div>
 <div class="row table-row" *ngFor="let commodity of commodities">
-  <app-commodity-item [commodity]="commodity" (commodityClick)="selectcommodity = $event"></app-commodity-item>
+  <app-commodity-item [commodity]="commodity" (commodityClick)="selectCommodity = $event"></app-commodity-item>
 </div>

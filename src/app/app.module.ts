@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 
 // 当打包部署静态包时，需要加载本Module，当使用服务端渲染时，请注释
-import { SPAModule } from '../pages/spa.module';
+import { SPAModule } from '../pages/spa.module'; // 加及初始化 数据接口封装库
+import { Parse } from '../cloud/parse';
+Parse.initialize('dev', 'http://host.qh-class.com:2337/parse');
+// Parse.initialize("dev","http://localhost:1337/parse")
 
 @NgModule({
   declarations: [

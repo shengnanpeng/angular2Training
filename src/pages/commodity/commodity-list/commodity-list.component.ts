@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {CommodityService} from '../commodity.service';
 import { Http } from '@angular/http';
+import {Parse} from '../../../cloud/parse';
 
 @Component({
   selector: 'app-commodity-login',
@@ -12,24 +13,24 @@ import { Http } from '@angular/http';
 export class CommodityListComponent implements OnInit {
   searchText: string = "";
   searchType: string = "name";
-  selectcommodity:any={
+  selectCommodity:any={
     name:"未选择"
   };
   searchResult:Array<any>;
   commodities:Array<any>=[];
 
   getUserClick(ev){
-    this.selectcommodity = ev;
+    this.selectCommodity = ev;
     console.log(ev);
   }
  
-  sortByAsccending(type="id") {
+  sortByAsccending(type="commodityId") {
     // 参考MDN Array操作的API文档 Array相关方法方法
     this.commodities.sort((a,b)=>{
       return a[type] - b[type];
     });
   }
-  sortByDesccending(type="id") {
+  sortByDesccending(type="commodityId") {
     // 参考MDN Array操作的API文档 Array相关方法
     // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
     this.commodities.sort((a,b)=>{
@@ -44,10 +45,18 @@ export class CommodityListComponent implements OnInit {
   })
     this.sortByAsccending("tempIndex");
   }
-  constructor(meta: Meta, title: Title,private http:Http, private commodityserv:CommodityService) {
+  
+  constructor(meta: Meta, title: Title,private http:Http, private commodityServ:CommodityService) {
 
-    this.commodities = this.commodityserv.getcommodities();
+    let query = new Parse.Query("commodity",http)
+    query.find().subscribe(data=>{
+      console.log(data)
+      this.commodities = data;
+    })
 
+    // this.commodityServ.getCommodities().subscribe(data=>{
+    //   console.log(data)
+    // })
     // Set SEO
     title.setTitle('My Home Page');
 

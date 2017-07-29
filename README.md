@@ -1,20 +1,10 @@
 # Ng LazyLoad Starter
 
-psntest的项目本项目通过最新版 [Angular CLI](https://github.com/angular/angular-cli) version 0.0.1 创建。
+本项目通过最新版 [Angular CLI](https://github.com/angular/angular-cli) version 0.0.1 创建。
 
 项目目标
-- 提供**LazyLoad**机制，匹配最新版本Angular的初始化项目包
-- 提供**SSR服务端渲染**、SPA静态打包两种运行模式
-- **提高首页加载效率**，将模块分组打包
-
-SSR模式注意
-- 不可以使用直接操作DOM的第三方组件
-    - 可考虑使用iframe引入相关页面
-- 动态效果可用官方提供的Animations动画库
-    - import { NoopAnimationsModule } from '@angular/animations' on the ServerAppModule
-
-参考文档
-- doc/SSR-init.md -> @angular/platform-server服务端渲染模式配置
+- 练习Angular工程的基本配置
+- 实现了对DB的异步增删改查
 
 ## Development server
 

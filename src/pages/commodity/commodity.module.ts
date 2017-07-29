@@ -5,14 +5,17 @@ import { CommodityListComponent } from './commodity-list/commodity-list.componen
 import { CommodityEditComponent } from './commodity-edit/commodity-edit.component';
 import { CommodityItemComponent } from './commodity-item/commodity-item.component';
 import {CommodityService} from './commodity.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     // Config Router
     RouterModule.forChild([
       { path: '', component: CommodityListComponent, pathMatch: 'full' },
-      { path: 'student/edit/:sid', component: CommodityEditComponent, pathMatch: 'full' }
+      { path: 'commodity/edit/:id', component: CommodityEditComponent, pathMatch: 'full' },
+      { path: 'commodity', component: CommodityListComponent, pathMatch: 'full' }
     ])
   ],
   declarations: [

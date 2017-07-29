@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
+import { CommodityService } from '../commodity.service';
 
 @Component({
   selector: 'app-commodity-edit',
@@ -8,61 +11,48 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 
 export class CommodityEditComponent implements OnInit {
- commodities:Array<any> = [
-    {"num":19,
-    "name":"commodity3",
-      "price":"300"},
-      {"num":7,
-      "name":"commodity1",
-      "price":"100"},
-      {"num":14,
-      "name":"commodity2",
-      "price":"200"}
-  ]
+  commodityId: string = "";
+  commodity: any={
+    name: "",
+  };
+  isNew:boolean = false;
 
-  constructor(meta: Meta, title: Title) {
-    title.setTitle('Login Commodity Page');
+  // Subscribe Declaration
+  getCommoditySubscribe: any;
 
-    meta.addTags([
-      {
-        name: 'author', content: 'eddic'
-      },
-      {
-        name: 'keywords', content: 'angular 4 tutorial, angular seo'
-      },
-      {
-        name: 'description', content: 'This is my great description.'
-      },
-    ])
+  constructor(private route: ActivatedRoute,
+  private commodityServ: CommodityService,
+  private location: Location) {
   }
-
-  sortByAsccending(){
-    this.commodities.sort(function (a, b) {
-      return a.num - b.num;
-    });
+  back(){
+    this.location.back();
   }
-  sortByDesccending(){
-    // 参考MDN Array操作的API文档 Array相关方法
-    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
-    this.commodities.sort(function (a, b) {
-      return b.num - a.num;
-    });
+  save(){
+    this.commodity.price = Number(this.commodity.price);
+    this.commodity.commodityId = Number(this.commodity.commodityId);
+    this.commodityServ.saveCommodity(this.commodity).subscribe(data=>{
+      console.log(data);
+      this.location.back();
+    })
+    this.commodityServ.saveCommodity(this.commodity).subscribe(data=>{
+      console.log(data)
+      this.location.back();
+    })
   }
-  sortByRadom(){
-    this.commodities = this.randomArr(this.commodities);
-  }
-
-  randomArr (arr:Array<any>): Array<any>
-  {
-  let outputArr:Array<any> = arr.slice();
-  let i = outputArr.length;
-  while (i)
-  {
-  outputArr.push(outputArr.splice((Math.random() * i--), 1)[0]);
-  }
-  return outputArr;
-  }
-
   ngOnInit() {
+        this.route.params.subscribe(params=>{
+          let id = params['id'];
+          if(id=="new"){
+            let commodity = {name:""}
+            this.isNew = true;
+            this.commodity = commodity;
+          }else{
+            this.commodityServ.getCommodityById(id).subscribe(commodity=>{
+            console.log(commodity);
+            // this.commodityId = commodity.objectId;
+            this.commodity = commodity;
+        })
+      }
+    })
   }
 }
